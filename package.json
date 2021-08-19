@@ -1,0 +1,21 @@
+{
+  "name": "the-javascript-bot",
+  "version": "1.0.0",
+  "description": "A twitter bot to retweet tweets with javascript tagged.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Bollinger",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "/Users/michael/Desktop/the-javascript-bot/.git/"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
