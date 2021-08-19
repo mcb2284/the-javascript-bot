@@ -20,8 +20,24 @@ function retweet(searchText) {
             for(let tweet of tweets) {
                 tweetIDList.push(tweet.id_str);
 
-                //more code here later...
+                //Handle Duplicates
+                if(tweet.text.startsWith('RT @')){
+                    if(tweet.retweeted_status){
+                        tweetIDList.push(tweet.retweeted_status.id_str);
+                    }
+                    else{
+                        tweetIDList.push(tweet.id_str);
+                    }
+                }
+                else{
+                    tweetIDList.push(tweet.id_str);
+                }
             }
+            function onlyUnique(value, index, self){
+                return self.indexOf(value) ===index;
+            }
+
+            tweetIDList = tweetIDList.filter( onlyUnique );
 
             // Call the 'statuses/retweet/:id' API endpoint for retweeting EACH of the tweetID
             for (let tweetID of tweetIDList) {
